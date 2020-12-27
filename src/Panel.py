@@ -1,5 +1,7 @@
 import tkinter as tk
 from tkinter import Tk
+from tkinter.ttk import Combobox,Treeview
+import tkinter.messagebox  as mb
 from Database import Resource
 
 class Panel(Tk):
@@ -14,3 +16,6 @@ class Panel(Tk):
                           for _ in self.geometry().split('+')[0].split('x'))
         self.geometry(
             "+%d+%d" % (self.screencenter[0]-self.size[0]/2, self.screencenter[1]-self.size[1]))
+        self.widget()
+    def widget(self):
+        pass
