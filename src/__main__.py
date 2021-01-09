@@ -1,4 +1,4 @@
-from Gui import *
+from Gui import Wellcome, Main
 
 if __name__ == "__main__":
-    Main().mainloop()
+   Wellcome().mainloop()
