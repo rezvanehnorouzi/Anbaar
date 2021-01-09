@@ -340,10 +340,13 @@ class Main(Panel):
         t_infokala.heading("mahal", text="محل کالا")
 
         def datagrid(event):
-            t_infokala.delete(*t_infokala.get_children())
-            for kala in self.kala.kalaha.search(
-                    where("dasteh") == lb_dasteh.get(tk.FIRST)):
-                t_infokala.insert("", tk.END, values=list(kala.values()))
+            try:
+                t_infokala.delete(*t_infokala.get_children())
+                for kala in self.kala.kalaha.search(
+                        where("dasteh") == lb_dasteh.selection_get()):
+                    t_infokala.insert("", tk.END, values=list(kala.values()))
+            except Exception:
+                pass
         lb_dasteh.bind('<ButtonRelease>', datagrid)
         t_infokala.grid(row=0, column=0, sticky=tk.NSEW)
         f_down.grid_columnconfigure(0, weight=1)
